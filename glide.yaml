@@ -1,3 +1,0 @@
-package: com.siemens/zjj/GoBible
-import:
-  - package: github.com/stretchr/testify/assert

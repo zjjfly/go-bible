@@ -40,10 +40,10 @@ func TestUtf8(t *testing.T) {
 	//把rune序列转成string
 	assert.Equal(t, s, string(r))
 	//可以使用string把整型转成包含对应Unicode码点的字符串
-	assert.Equal(t, "A", string(65))
-	assert.Equal(t, "京", string(0x4eac))
+	assert.Equal(t, "A", fmt.Sprint(65))
+	assert.Equal(t, "京", fmt.Sprint(0x4eac))
 	//如果对应的码点无效,则会使用\uFFFD(�)来代替
-	assert.Equal(t, "�", string(12345678))
+	assert.Equal(t, "�", fmt.Sprint(12345678))
 }
 
 func TestStrings(t *testing.T) {
@@ -119,15 +119,14 @@ func Comma(s string) string {
 	if 0 == offset {
 		offset = 3
 	}
-	delimiter:=""
-	for ; len(s) > 0;
-	{
+	delimiter := ""
+	for len(s) > 0 {
 		x := s[:offset]
 		s = s[offset:]
 		buf.WriteString(delimiter)
 		buf.WriteString(x)
 		offset = 3
-		delimiter=","
+		delimiter = ","
 	}
 	return buf.String()
 }
