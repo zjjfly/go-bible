@@ -1,4 +1,4 @@
-module go-bible
+module github.com/zjjfly/go-bible
 
 go 1.17
 
